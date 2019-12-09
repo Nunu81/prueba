@@ -5114,7 +5114,7 @@ namespace libtorrent
 
 		bool sent_a_piece = false;
 		boost::shared_ptr<torrent> t = m_torrent.lock();
-		if (!t || t->is_aborted() || m_requests.empty()) return;
+		if (!t || t->is_aborted() || m_requests.empty() || t->seed_mode()) return;
 
 		// only add new piece-chunks if the send buffer is small enough
 		// otherwise there will be no end to how large it will be!
